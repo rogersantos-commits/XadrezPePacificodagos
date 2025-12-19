@@ -1,0 +1,109 @@
+:root {
+  --royal-blue: #0066cc;
+  --light-blue: #e6f0ff;
+  --white: #ffffff;
+  --dark-blue: #004a99;
+  --accent: #ffd700;
+  --danger: #d9534f;
+  --text: #0a0a0a;
+
+  --win-bg: #dff0d8;
+  --lose-bg: #f7f7f7;
+  --draw-bg: #fff3cd;
+}
+
+/* dark theme colors */
+body.dark {
+  --royal-blue: #003366;
+  --light-blue: #0f1720;
+  --white: #0b0b0b;
+  --dark-blue: #001f3d;
+  --text: #f3f3f3;
+  --win-bg: #113d17;
+  --draw-bg: #5f4b00;
+}
+
+/* global */
+*{box-sizing:border-box}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: var(--text);
+  background: var(--light-blue);
+  transition: background-color .25s linear, color .25s linear;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+  background: var(--royal-blue);
+  color: var(--white);
+  border-bottom: 4px solid var(--accent);
+}
+.header-left h1 { margin:0; font-size:20px; }
+.header-left .sub { margin:3px 0; color:#eef6ff; font-size:13px; }
+.header-right button {
+  margin-left:8px;
+  background:transparent;border:1px solid rgba(255,255,255,0.15);
+  color:white;padding:6px;border-radius:6px;cursor:pointer;
+}
+
+/* layout */
+.layout { display:flex; gap:16px; padding:14px; }
+
+/* sidebar */
+.sidebar { width:280px; background:var(--white); border-radius:10px; padding:12px; border:2px solid var(--royal-blue); }
+.players-list { max-height:640px; overflow:auto; display:flex; flex-direction:column; gap:8px; }
+.player-row { display:flex; justify-content:space-between; align-items:center; background:var(--white); border-left:5px solid var(--royal-blue); padding:8px; border-radius:6px; border:1px solid #cde0ff; }
+.player-row .num { color:var(--royal-blue); font-weight:700; margin-right:8px; }
+.player-icon { margin-right:8px; color:var(--royal-blue); font-size:16px; }
+
+/* inline editable input */
+.player-name-input { padding:6px;border-radius:6px;border:1px solid #ccc; }
+
+/* controls */
+.controls { display:flex; gap:8px; margin-bottom:10px; }
+.controls button { background:var(--royal-blue); color:white; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; font-weight:700; }
+.controls button:disabled { opacity:.6; cursor:not-allowed; }
+
+/* pairings */
+.pairings-section, .standings-section { background:var(--white); padding:12px; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.06); border:1px solid #dfefff; margin-bottom:12px; }
+.match-card { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:12px; border-radius:8px; border-left:6px solid var(--royal-blue); background:var(--white); transition: background-color .3s ease, transform .18s ease; }
+.match-player { display:flex; align-items:center; gap:10px; width:30%; padding:8px; border-radius:6px; }
+.match-buttons { width:40%; text-align:center; }
+.match-buttons button { margin:6px; padding:8px 12px; border-radius:6px; border:1px solid var(--royal-blue); cursor:pointer; background:white; color:var(--royal-blue); font-weight:700; }
+
+/* highlights + fade */
+.match-player.win { background:var(--win-bg); border:1px solid rgba(0,0,0,0.06); box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+.match-player.lose { background:var(--lose-bg); }
+.match-player.draw { background:var(--draw-bg); border:1px solid rgba(0,0,0,0.06); }
+.fade-highlight { animation: fadeIn 0.35s ease-out; }
+@keyframes fadeIn { from { opacity:0.6; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
+
+/* table */
+table { width:100%; border-collapse:collapse; font-size:14px; }
+thead th { background:var(--royal-blue); color:var(--white); padding:10px; text-align:left; }
+tbody td { padding:8px; border-bottom:1px solid #e6f0ff; }
+tbody tr:nth-child(even) { background:#f6fbff; }
+
+/* footer */
+footer { text-align:center; padding:10px; background:var(--royal-blue); color:var(--white); border-top:3px solid var(--accent); }
+
+/* projector mode (larger fonts, simplified) */
+body.projector {
+  font-size:1.4rem;
+}
+body.projector .match-card { padding:18px; margin-bottom:18px; }
+body.projector .player-row { padding:12px; }
+
+/* responsive */
+@media (max-width:900px) {
+  .layout { flex-direction:column; }
+  .sidebar { width:100%; order:2; }
+  .mainpanel { order:1; }
+  .match-card { flex-direction:column; align-items:stretch; gap:8px; }
+  .match-player { width:100%; justify-content:flex-start; }
+  .match-buttons { width:100%; }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Xadrez EMEF — Avançado</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0066cc">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-left">
+      <h1>Xadrez</h1>
+      <p class="sub">E.M.E.F. PE. PACÍFICO DAGOSTIM — Torneio Suíço • 5 Rodadas (Avançado)</p>
+    </div>
+
+    <div class="header-right">
+      <button id="themeToggle" title="Alternar tema">🌓</button>
+      <button id="projectorBtn" title="Modo projeção">📺</button>
+      <button id="backupSaveBtn">☁️ Salvar</button>
+      <button id="backupLoadBtn">☁️ Carregar</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+
+      <h3>Lista de Alunos</h3>
+      <div id="playersList" class="players-list"></div>
+
+      <div class="sidebar-actions">
+        <button id="shuffleBtn">Embaralhar</button>
+        <button id="resetBtn" class="danger">Zerar</button>
+      </div>
+
+      <p class="credits">
+        Criado por <strong>Roger de Sá</strong><br>
+        Instagram: <a href="https://instagram.com/roger.de.sa" target="_blank">@roger.de.sa</a>
+      </p>
+
+      <p class="credits">
+        Escola: <a href="https://instagram.com/escolapadrepacifico" target="_blank">@escolapadrepacifico</a>
+      </p>
+
+    </aside>
+
+    <section class="mainpanel">
+
+      <div class="controls">
+        <button id="startBtn">Iniciar Rodada 1</button>
+        <button id="nextBtn" disabled>Próxima Rodada</button>
+        <button id="undoBtn" disabled>Desfazer Rodada</button>
+        <button id="exportBtn">Exportar CSV</button>
+      </div>
+
+      <div class="round-info">
+        Rodada atual: <span id="currentRound">0</span> / <span id="roundsTotal">5</span>
+      </div>
+
+      <section class="pairings-section">
+        <h2>Pareamentos</h2>
+        <div id="pairings">Aguardando início…</div>
+      </section>
+
+      <section class="standings-section">
+        <h2>Classificação (tiebreak automático)</h2>
+
+        <table id="standings">
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Nº</th>
+              <th>Nome</th>
+              <th>Pts</th>
+              <th>SB</th>
+              <th>BMed</th>
+              <th>Buchh</th>
+              <th>Oponentes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+      </section>
+
+    </section>
+  </main>
+
+  <footer>
+    <small>EMEF PE PACÍFICO DAGOSTIM — Sistema avançado por Roger de Sá</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
